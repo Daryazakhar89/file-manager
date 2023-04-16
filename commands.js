@@ -4,6 +4,7 @@ import renameFile from './actions/renameFile.js';
 import readFile from './actions/readFile.js';
 import copyFile from './actions/copyFile.js';
 import moveFile from './actions/moveFile.js';
+import removeFile from './actions/removeFile.js';
 
 
 export default new Map([
@@ -14,4 +15,5 @@ export default new Map([
   ['cat', readFile],
   ['cp', copyFile],
   ['mv', moveFile],
+  ['rm', removeFile],
 ]);
