@@ -1,10 +1,14 @@
 import { createReadStream } from 'fs';
-import { join } from 'path';
 import { pipeline } from 'stream/promises';
 import { stdout } from 'process';
 
-export default async (fileName) => {
-  const pathToFile = join(process.cwd(), fileName);
+import InvalidInputError from '../../errors/invalidInput.js';
+
+export default async (pathToFile) => {
+  if (!pathToFile) {
+    throw new InvalidInputError();
+  }
+
   await pipeline(createReadStream(pathToFile, 'utf8'), stdout, { end: false });
   stdout.write('\n');
 };

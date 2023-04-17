@@ -3,16 +3,21 @@ import { createReadStream, createWriteStream } from 'fs';
 import { access, mkdir } from 'fs/promises';
 import { join, basename } from 'path';
 
+import InvalidInputError from '../../errors/invalidInput.js';
+
 const createFolderStructureIfNotExist = async (pathToNewDirectory) => {
   try {
     await access(pathToNewDirectory)
   } catch (err) {
     await mkdir(pathToNewDirectory, { recursive: true });
   }
-}
+};
 
-// cp ./file-manager/actions/up.js ./file-manager/this/is/test
 export default async (pathToFile, pathToNewDirectory) => {
+  if (!pathToFile || !pathToNewDirectory) {
+    throw new InvalidInputError();
+  }
+
   const fileName = basename(pathToFile);
   await createFolderStructureIfNotExist(pathToNewDirectory);
 
@@ -32,4 +37,3 @@ export default async (pathToFile, pathToNewDirectory) => {
     );
   });
 };
-
