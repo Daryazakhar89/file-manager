@@ -11,7 +11,7 @@ class OSHandlerCommands {
       return action();
     }
   }
-}
+};
 
 const osHandlerCommands = new OSHandlerCommands(commands);
 
