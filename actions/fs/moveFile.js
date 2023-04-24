@@ -1,4 +1,4 @@
-import copyFile from "./copyFile.js";
+import copyFile from './copyFile.js';
 import removeFile from './removeFile.js';
 
 import InvalidInputError from '../../errors/invalidInput.js';

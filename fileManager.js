@@ -4,7 +4,7 @@ import { homedir } from 'os';
 import InvalidInputError from './errors/invalidInput.js';
 import commands from './commands.js';
 
-const getUserName = () => process.argv[2].split("--username=").pop();
+const getUserName = () => process.argv[2].split('--username=').pop();
 
 const greetUser = (userName) => stdout.write( `Welcome to the File Manager, ${userName}!\n`);
 
