@@ -1,3 +1,9 @@
-# file-manager
+# File-manager
 
-**this is dummy initial text**
+# Installation
+```
+ git clone https://github.com/Daryazakhar89/file-manager.git
+```
+```
+npm install
+```
